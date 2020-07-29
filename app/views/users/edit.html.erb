@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row mt-3">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <%= form_for(@user) do |f| %>
+      <div class="form-group">
+          <%= f.text_field :username, autofocus: true, autocomplete: "username", placeholder: "Enter your username", class: "form-control" %>
+      </div>
+      <div class="form-group">
+          <%= f.email_field :email, autocomplete: "email", placeholder: "Enter your email", class: "form-control" %>
+      </div>
+      <div class="form-group">
+          <%= f.password_field :password,  autocomplete: "off", placeholder: "Enter your password", class: "form-control" %>
+      </div>
+      <div class="actions">
+        <%= f.submit "Submit", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
