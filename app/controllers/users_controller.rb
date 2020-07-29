@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to new_user_path
     else
+      flash[:errors] = @user.errors.full_messages
       render :new
     end
   end
@@ -21,7 +22,12 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.update(user_params)
 
-    redirect_to new_user_path
+    if @user.update user_params
+      redirect_to new_user_path
+    else
+      flash[:errors] = @user.errors.full_messages
+      render :edit
+    end
   end
 
   private
